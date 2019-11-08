@@ -23,6 +23,10 @@ import QuestionTemplate.Views exposing (..)
 import QuestionTemplate.Optics exposing (..)
 import ViewHelpers exposing (..)
 import Url exposing (Url)
+import Menu exposing (..)
+import JsonModel.Deserialization exposing (fromJson)
+import JsonModel.Serialization exposing (toJson)
+import Ports exposing (..)
 
 -- Program entry point
 
@@ -38,11 +42,15 @@ main = Browser.application {
 
 -- Types
 
-type alias Model = { route : Route, key : Nav.Key, uuidSeed : Seed, questionTemplate : QuestionTemplate }
+type alias Model = { route : Route, key : Nav.Key, uuidSeed : Seed, questionTemplate : QuestionTemplate, menuState : MenuState }
 
 type Msg = UpdateModel (Model -> Model)
          | ChangedUrl Url
          | ClickedLink Browser.UrlRequest
+         | MenuAction MenuMsg
+         | QuestionTemplateLoaded QuestionTemplate
+         | QuestionTemplateSaved
+         | NoAction
 
 type SelectedEntity a = Question (Focus a Question)
                       | Option (Focus a QuestionOption)
@@ -68,6 +76,12 @@ questionTemplateOfModel = {
         optional = Lens (\m -> m.questionTemplate) (\c m -> { m | questionTemplate = c }) |> Monocle.Optional.fromLens,
         path = [ ]
     }
+
+menuStateOfModel : Focus Model MenuState
+menuStateOfModel = {
+        optional = Lens (\m -> m.menuState) (\c m -> { m | menuState = c }) |> Monocle.Optional.fromLens,
+        path = [ ]
+    }  
 
 -- Helpers
 
@@ -151,6 +165,10 @@ init flags location key =
                 { name = ""                    
                 , categories= [ makeQuestionCategory PEP, makeQuestionCategory AML ]
                 }
+            , menuState = 
+                { products = [ ]
+                , selectedProduct = ""
+                }
             }
     in
         (initialModel, Cmd.none)
@@ -159,13 +177,24 @@ init flags location key =
 -- Subscriptions
 
 subscriptions : Model -> Sub Msg
-subscriptions model = Sub.none
+subscriptions model = 
+    Sub.batch 
+        [ questionTemplateLoaded (\data -> 
+            case fromJson data of
+                Ok questionTemplate -> QuestionTemplateLoaded questionTemplate
+                Err error -> NoAction)
+        , questionTemplateSaved (\_ -> QuestionTemplateSaved)
+        , productsLoaded (\data -> 
+            case parseProducts data of
+                Ok products -> UpdateModel <| (menuStateOfModel |> composeFocus productsOfMenuState).optional.set products
+                Err error -> NoAction)
+        ]
 
 -- Update
 
 update : Msg -> Model -> (Model, Cmd Msg)
 update msg model = 
-    case msg of 
+    case Debug.log "MESSAGE: " msg of 
         UpdateModel f -> 
             (f model, Cmd.none)
         ClickedLink urlRequest ->
@@ -176,6 +205,18 @@ update msg model =
                     ( model, Nav.load href )
         ChangedUrl url -> 
             ({ model | route = parseLocation url }, Cmd.none)
+        MenuAction action ->
+            case action of            
+                LoadQuestionTemplate product ->
+                    (model, loadQuestionTemplate product)
+                SaveQuestionTemplate product ->
+                    (model, saveQuestionTemplate (product, toJson model.questionTemplate))
+        QuestionTemplateLoaded questionTemplate ->
+            ({ model | questionTemplate = questionTemplate }, Cmd.none)
+        QuestionTemplateSaved ->
+            (model, Cmd.none)
+        NoAction ->
+            (model, Cmd.none)
 
 -- Views
 
@@ -186,6 +227,7 @@ view model =
         rootView = 
             let
                 modelTraits = { makeMsg = UpdateModel, makeIdMsg = UpdateModel << withNewId }
+                menuView_ = menuView MenuAction model modelTraits menuStateOfModel
                 questionTemplateView_ = questionTemplateView model modelTraits questionTemplateOfModel
                 questionDetailsView_ = 
                     case routeToSelectedEntity model.route of 
@@ -197,6 +239,10 @@ view model =
             in
                 Grid.container [ style "background-color" "#333", style "max-width" "100%" ]  -- #e10075,  #6b1faf
                     [ CDN.stylesheet -- creates an inline style node with the Bootstrap CSS
+                    , div [ class "row" ] 
+                        [ div [ class "col" ] 
+                            [ menuView_ ]
+                        ]
                     , div [ class "row" ]
                         [ div [ class "col-7" ]
                             [ questionTemplateView_ ]
