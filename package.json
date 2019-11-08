@@ -1,0 +1,23 @@
+{
+  "name": "collector-compliance-template-editor",
+  "version": "0.1.0",
+  "description": "Background\r ==========\r The compliance template editor is a web ui for editing question templates. A new question template can be created from scratch or an existing template can be modified.",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "elm-test --fuzz 40",
+    "prepublish": "elm-make ./src/Main.elm --output=index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/collector-bank/collector-compliance-template-editor.git"
+  },
+  "author": "Daniel Brännström",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/collector-bank/collector-compliance-template-editor/issues"
+  },
+  "homepage": "https://github.com/collector-bank/collector-compliance-template-editor#readme"
+}
