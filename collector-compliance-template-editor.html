@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Main</title>
+  <script src="collector-compliance-template-editor.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+  <script>
+    var app = Elm.Main.init({
+        node: document.getElementById('root')
+    });
+
+    app.ports.productsLoaded.send(`
+      [ 
+        { "id": "1", "name": "A" },
+        { "id": "2", "name": "B" },
+        { "id": "3", "name": "C" }
+      ]
+    `
+    );
+
+    app.ports.saveQuestionTemplate.subscribe(function (farg) {
+      console.log("saveQuestionTemplate called.", farg)
+      app.ports.questionTemplateSaved.send("ok!");
+    });
+
+    app.ports.loadQuestionTemplate.subscribe(function (farg) {
+        console.log("loadQuestionTemplate called.", farg)
+        app.ports.questionTemplateLoaded.send(`
+ {
+    "name": "some name",
+    "categories": [
+        {
+            "title": "Some title",
+            "categoryType": 0,
+            "extendedTitle": "Extended title",
+            "questions": [
+                {
+                    "questionType": 1,
+                    "id": "48cce67d-a40b-4112-be49-a49cb9897201",
+                    "title": "Free text q"
+                }
+            ]
+        },
+        {
+            "title": "",
+            "categoryType": 1,
+            "questions": []
+        }
+    ]
+}        
+        `);
+    });    
+  </script>
+</body>
+</html>
