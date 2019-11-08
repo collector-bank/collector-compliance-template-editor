@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "elm-test --fuzz 40",
-    "prepublish": "elm-make ./src/Main.elm --output=index.js"
+    "prepublish": "elm make ./src/Main.elm --output=index.js"
   },
   "repository": {
     "type": "git",
@@ -19,5 +19,6 @@
   "bugs": {
     "url": "https://github.com/collector-bank/collector-compliance-template-editor/issues"
   },
-  "homepage": "https://github.com/collector-bank/collector-compliance-template-editor#readme"
+  "homepage": "https://github.com/collector-bank/collector-compliance-template-editor#readme",
+  "files": [ "./index.js"]
 }
