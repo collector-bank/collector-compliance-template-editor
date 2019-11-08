@@ -1,0 +1,608 @@
+{
+  "name": "Product X Swedish. Version 2",
+  "createdAt": "2018-04-23T13:55:07.6694245+00:00",
+  "categories": [
+    {
+      "title": "Frågor enligt lagen",
+      "extendedTitle": "<b>Frågor<b> enligt <b>lagen<b>",
+      "description": "Some description.",
+      "extendedDescription": "<b>utökad beskrivning</b>",
+      "categoryType": 1,
+      "questions": [
+        {
+          "questionType": 0,
+          "selectType": 0,
+          "options": [
+            {
+              "id": "c7d81450-6567-40b7-8734-435e6728a9dc",
+              "text": "0 - 10 000 kronor",
+              "isComplianceCheckNeeded": false,
+              "followUpQuestions": []
+            },
+            {
+              "id": "ce3fe914-b097-4160-87b8-b4ead964ffd4",
+              "text": "10 000 - 25 000 kronor",
+              "isComplianceCheckNeeded": false,
+              "followUpQuestions": []
+            },
+            {
+              "id": "816eb4d2-dae2-4e2f-8990-ded7760ab3a7",
+              "text": "25 000 - 50 000 kronor",
+              "isComplianceCheckNeeded": false,
+              "followUpQuestions": []
+            },
+            {
+              "id": "09fc44ab-c44e-4293-ade2-5a8b94004549",
+              "text": "50 000 kronor eller mer",
+              "isComplianceCheckNeeded": true,
+              "followUpQuestions": []
+            }
+          ],
+          "selectedOptions": null,
+          "id": "7194c584-ceaa-4f31-914c-b50011ae3960",
+          "title": "Hur mycket förväntar du dig att handla för i genomsnitt per månad?",
+          "description": "",
+          "extendedTitle": null,
+          "extendedDescription": null,
+          "parameters": null
+        }
+      ]
+    },
+    {
+      "title": "Politiskt utsatt person",
+      "extendedTitle": null,
+      "description": "",
+      "extendedDescription": null,
+      "categoryType": 0,
+      "questions": [
+        {
+          "questionType": 0,
+          "selectType": 1,
+          "options": [
+            {
+              "id": "d4be590a-98b3-4127-b32b-7c3edd7a602a",
+              "text": "Nej",
+              "isComplianceCheckNeeded": false,
+              "followUpQuestions": []
+            },
+            {
+              "id": "3e881960-abf0-47c4-bdac-bcd0112db3a5",
+              "text": "Ja",
+              "isComplianceCheckNeeded": false,
+              "followUpQuestions": [
+                {
+                  "questionType": 0,
+                  "selectType": 0,
+                  "options": [
+                    {
+                      "id": "3f496e4b-d05c-40c1-9143-2fe51c8c6e89",
+                      "text": "Jag",
+                      "isComplianceCheckNeeded": false,
+                      "followUpQuestions": []
+                    },
+                    {
+                      "id": "170f6d7c-5a83-4af3-b2c4-761e722041cc",
+                      "text": "Make/maka, registrerad partner eller sambo",
+                      "isComplianceCheckNeeded": false,
+                      "followUpQuestions": []
+                    },
+                    {
+                      "id": "97513010-b1dd-4ac5-92f2-4d1815ae461e",
+                      "text": "Barn",
+                      "isComplianceCheckNeeded": false,
+                      "followUpQuestions": []
+                    }
+                  ],
+                  "selectedOptions": null,
+                  "id": "ac7e857c-ca6f-4c65-b1db-44cbd03531d5",
+                  "title": "Vem?",
+                  "description": "",
+                  "extendedTitle": null,
+                  "extendedDescription": null,
+                  "parameters": null
+                }
+              ]
+            }
+          ],
+          "selectedOptions": null,
+          "id": "1803ab96-22d6-44be-8dbc-55b2627dc33e",
+          "title": "Är du, någon i din familj eller annan i din närhet en person i politiskt utsatt ställning?",
+          "description": "Stats - eller regeringschef, minister samt vice och biträdande minister",
+          "extendedTitle": null,
+          "extendedDescription": null,
+          "parameters": null
+        },
+        {
+          "questionType": 1,
+          "maxLength": 11,
+          "isMandatory": false,
+          "answer": null,
+          "id": "273408f5-005c-409d-bebf-1dca0c25134f",
+          "title": "Personnummer",
+          "description": "",
+          "extendedTitle": null,
+          "extendedDescription": null,
+          "parameters": null
+        },
+        {
+          "questionType": 2,
+          "selectType": 0,
+          "options": [
+            {
+              "id": "e788fc0d-8db7-4861-ba45-4014bc3e78bf",
+              "text": "Albanien",
+              "validComplianceOption": true
+            },
+            {
+              "id": "8f36728c-5b15-4d0d-9566-55704219c4a1",
+              "text": "Andorra",
+              "validComplianceOption": true
+            },
+            {
+              "id": "d03e1db9-dce0-4a74-bb26-d0f22ed9af7c",
+              "text": "Anguilla",
+              "validComplianceOption": true
+            },
+            {
+              "id": "5e321858-9cb6-4131-852a-d61015e8627b",
+              "text": "Antigua och Barbuda",
+              "validComplianceOption": true
+            },
+            {
+              "id": "ce6e74aa-3646-4a4a-9600-dc111d7563b6",
+              "text": "Argentina",
+              "validComplianceOption": true
+            },
+            {
+              "id": "b27821b9-51a4-48ea-b00e-5d3ff02c81d8",
+              "text": "Aruba",
+              "validComplianceOption": true
+            },
+            {
+              "id": "6bf57e56-9a70-4c42-b6cb-38350f021967",
+              "text": "Australien",
+              "validComplianceOption": true
+            },
+            {
+              "id": "cf0a38ef-4c5f-4cac-9905-7b5e283caa0f",
+              "text": "Barbados",
+              "validComplianceOption": true
+            },
+            {
+              "id": "a2c4cd08-1f3f-411e-a0f1-17507364dea2",
+              "text": "Belgien",
+              "validComplianceOption": true
+            },
+            {
+              "id": "0b08fd46-db27-4322-b43f-c3ca153861e8",
+              "text": "Belize",
+              "validComplianceOption": true
+            },
+            {
+              "id": "7898c175-8de6-484f-93c4-0d9542085f46",
+              "text": "Bermuda",
+              "validComplianceOption": true
+            },
+            {
+              "id": "80972e5b-c0ec-4117-871b-dd991e0396c8",
+              "text": "Brasilien",
+              "validComplianceOption": true
+            },
+            {
+              "id": "63a33af8-f5f0-4438-99ad-572722cfe908",
+              "text": "Brittiska Jungfruöarna",
+              "validComplianceOption": true
+            },
+            {
+              "id": "a5795c29-6ae8-433c-b5e4-63be1a7ae1fb",
+              "text": "Bulgarien",
+              "validComplianceOption": true
+            },
+            {
+              "id": "f27606ae-70e6-4b71-9921-5f3a2bc23b96",
+              "text": "Caymanöarna",
+              "validComplianceOption": true
+            },
+            {
+              "id": "cd04a85b-61cb-46dc-adc3-a1bd73e25adb",
+              "text": "Chile",
+              "validComplianceOption": true
+            },
+            {
+              "id": "f152c053-8520-464d-a637-a06dc02ee28e",
+              "text": "Colombia",
+              "validComplianceOption": true
+            },
+            {
+              "id": "40d14479-73b5-4f06-9f8b-fac9b8d180e4",
+              "text": "Cooköarna",
+              "validComplianceOption": true
+            },
+            {
+              "id": "ac9b2fef-b945-48fc-b85a-dffa9b214fcc",
+              "text": "Costa Rica",
+              "validComplianceOption": true
+            },
+            {
+              "id": "f4e953f7-9d5d-4b1a-bfb6-a3d045124df1",
+              "text": "Curacao",
+              "validComplianceOption": true
+            },
+            {
+              "id": "d5d3d1d2-0320-44f4-b148-c8edcfdbded7",
+              "text": "Cypern",
+              "validComplianceOption": true
+            },
+            {
+              "id": "a8d389f1-e0b7-41af-9c14-a31e4887923e",
+              "text": "Danmark",
+              "validComplianceOption": true
+            },
+            {
+              "id": "b57e97d5-e8f8-45d0-860c-88822c4bc438",
+              "text": "Estland",
+              "validComplianceOption": true
+            },
+            {
+              "id": "17dc061d-4f8e-4403-bae8-8f135809ce27",
+              "text": "Finland",
+              "validComplianceOption": true
+            },
+            {
+              "id": "d69c38bb-91bd-4d7b-bf64-59ce13f8b9c4",
+              "text": "Frankrike",
+              "validComplianceOption": true
+            },
+            {
+              "id": "9c1512be-4ad0-43fd-b045-98a2e611c652",
+              "text": "Färöarna",
+              "validComplianceOption": true
+            },
+            {
+              "id": "473f9839-5cd2-4d39-83cc-5d7ce7963900",
+              "text": "Förenade kungariket",
+              "validComplianceOption": true
+            },
+            {
+              "id": "a7b5162c-0279-4c91-aeee-d01ea3e9b128",
+              "text": "Ghana",
+              "validComplianceOption": true
+            },
+            {
+              "id": "7be3e4fb-bc1e-489e-a61d-2c540e599ff5",
+              "text": "Gibraltar",
+              "validComplianceOption": true
+            },
+            {
+              "id": "7174fe23-274d-4e68-81d3-e47a2178816f",
+              "text": "Grekland",
+              "validComplianceOption": true
+            },
+            {
+              "id": "67420213-5a70-4d68-8107-d3e61805ea16",
+              "text": "Grenada",
+              "validComplianceOption": true
+            },
+            {
+              "id": "af744f94-47fc-46f0-b236-9e9cc2182d6e",
+              "text": "Grönland",
+              "validComplianceOption": true
+            },
+            {
+              "id": "2e245004-536e-428d-bb78-2a8dc0686cde",
+              "text": "Guernsey",
+              "validComplianceOption": true
+            },
+            {
+              "id": "0501d169-d755-4d2e-a0c9-2f64b2ac16ec",
+              "text": "Indien",
+              "validComplianceOption": true
+            },
+            {
+              "id": "03a17865-9c44-42b2-9cbb-3837f2380e75",
+              "text": "Indonesien",
+              "validComplianceOption": true
+            },
+            {
+              "id": "23188dae-b8eb-4acd-bac8-c4173661d60d",
+              "text": "Irland",
+              "validComplianceOption": true
+            },
+            {
+              "id": "dbb925c7-2d43-4d53-a909-ab5b8ed1c72f",
+              "text": "Island",
+              "validComplianceOption": true
+            },
+            {
+              "id": "19314ba2-1c34-48c4-9812-6f35ce85374b",
+              "text": "Israel",
+              "validComplianceOption": true
+            },
+            {
+              "id": "e5d5de43-0837-4cd1-83d3-521f0c095579",
+              "text": "Isle of Man",
+              "validComplianceOption": true
+            },
+            {
+              "id": "761aed26-ee60-4bc9-b126-20d69a8f8c59",
+              "text": "Italien",
+              "validComplianceOption": true
+            },
+            {
+              "id": "f0d77830-0d6e-4b1c-82dd-d89c63b07258",
+              "text": "Japan",
+              "validComplianceOption": true
+            },
+            {
+              "id": "c18ce58f-9230-431d-b2b9-068329e66e9a",
+              "text": "Jersey",
+              "validComplianceOption": true
+            },
+            {
+              "id": "504589a2-017c-48a0-a5dc-b6d53601b108",
+              "text": "Kanada",
+              "validComplianceOption": true
+            },
+            {
+              "id": "4b28d11e-854a-4123-8789-ea7e476510c7",
+              "text": "Kina",
+              "validComplianceOption": true
+            },
+            {
+              "id": "844a1cff-4dca-4741-8609-0a968d2614fd",
+              "text": "Kroatien",
+              "validComplianceOption": true
+            },
+            {
+              "id": "07873135-4196-441f-bee7-05a7631ca602",
+              "text": "Kuwait",
+              "validComplianceOption": true
+            },
+            {
+              "id": "87709055-9499-4ef7-994e-1ff32b72f92d",
+              "text": "Lettland",
+              "validComplianceOption": true
+            },
+            {
+              "id": "ce9ab9a2-1c99-424b-b922-f198d3c55a02",
+              "text": "Liechtenstein",
+              "validComplianceOption": true
+            },
+            {
+              "id": "13300617-6af1-47cc-bcaa-f8a31fceb8a3",
+              "text": "Litauen",
+              "validComplianceOption": true
+            },
+            {
+              "id": "b1002bcf-9f59-432e-a29d-1162d7febf2c",
+              "text": "Luxemburg",
+              "validComplianceOption": true
+            },
+            {
+              "id": "a6e4aafc-fb76-4a5e-ba58-f2ca222f9047",
+              "text": "Malaysia",
+              "validComplianceOption": true
+            },
+            {
+              "id": "1d1f404a-3f47-4b37-80bb-7addf11d7452",
+              "text": "Malta",
+              "validComplianceOption": true
+            },
+            {
+              "id": "b5ba1363-443e-43e8-a2fe-e1cda1fa1154",
+              "text": "Marshallöarna",
+              "validComplianceOption": true
+            },
+            {
+              "id": "62e1a961-2dc0-4fdc-9651-4dfc86d6d16d",
+              "text": "Mauritius",
+              "validComplianceOption": true
+            },
+            {
+              "id": "059bdeb9-c17b-4355-8610-569aad344f20",
+              "text": "Mexiko",
+              "validComplianceOption": true
+            },
+            {
+              "id": "0f4bdccc-b5d8-4bf2-a72b-5023b21289a1",
+              "text": "Monaco",
+              "validComplianceOption": true
+            },
+            {
+              "id": "9c697d08-1248-4302-94ea-f082c555f313",
+              "text": "Montserrat",
+              "validComplianceOption": true
+            },
+            {
+              "id": "72c75bae-0555-4340-9ef4-39dcd1e24856",
+              "text": "Nauru",
+              "validComplianceOption": true
+            },
+            {
+              "id": "830965ee-3951-4806-950a-b64e11dcd75e",
+              "text": "Nederländerna",
+              "validComplianceOption": true
+            },
+            {
+              "id": "901a000f-1b32-49ba-8c8f-9c53f539b69b",
+              "text": "Niue",
+              "validComplianceOption": true
+            },
+            {
+              "id": "c691f56f-9d2e-45b3-8be4-734f8486469c",
+              "text": "Norge",
+              "validComplianceOption": true
+            },
+            {
+              "id": "4a35756c-36b9-4157-a5bb-4e38c6a98c81",
+              "text": "Nya Zeeland",
+              "validComplianceOption": true
+            },
+            {
+              "id": "315b2757-d3a5-436b-a62a-4ecdafef3120",
+              "text": "Polen",
+              "validComplianceOption": true
+            },
+            {
+              "id": "f9530e8c-2280-4c4c-b626-fda0558ba518",
+              "text": "Portugal",
+              "validComplianceOption": true
+            },
+            {
+              "id": "2738816b-2293-4048-8bf9-fcff26a74601",
+              "text": "Rumänien",
+              "validComplianceOption": true
+            },
+            {
+              "id": "7b3f518d-6c9b-46fb-af03-dab974ac5d61",
+              "text": "Ryssland",
+              "validComplianceOption": true
+            },
+            {
+              "id": "3ccdac59-6617-4c1f-ad16-57dee18df98f",
+              "text": "Saint Lucia",
+              "validComplianceOption": true
+            },
+            {
+              "id": "aa5d3a49-fabe-4d3d-aa9f-7757758a4eda",
+              "text": "Saint Kitts och Nevis",
+              "validComplianceOption": true
+            },
+            {
+              "id": "f09a078c-70f7-41ed-a27b-5e83b7e4e9db",
+              "text": "Saint Vincent och Grenadinerna",
+              "validComplianceOption": true
+            },
+            {
+              "id": "4d5f86c5-16c9-4424-a624-b2d389f99bcd",
+              "text": "Samoa",
+              "validComplianceOption": true
+            },
+            {
+              "id": "b5f6061f-b746-499c-b94d-eea148fa84ff",
+              "text": "San Marino",
+              "validComplianceOption": true
+            },
+            {
+              "id": "86e98f16-7a00-4327-a142-eab16b889fb5",
+              "text": "Saudiarabien",
+              "validComplianceOption": true
+            },
+            {
+              "id": "3bc87e88-6f09-405b-be05-c1c8d3fbe2c8",
+              "text": "Schweiz",
+              "validComplianceOption": true
+            },
+            {
+              "id": "d60a5618-f5a4-4433-98c4-fd9ddb219e60",
+              "text": "Seychellerna",
+              "validComplianceOption": true
+            },
+            {
+              "id": "d8ea6184-4ba7-4a0b-949f-d1eb120e514b",
+              "text": "Sint Maarten",
+              "validComplianceOption": true
+            },
+            {
+              "id": "407d6864-6413-454f-a51c-50e469f3ff02",
+              "text": "Slovakien",
+              "validComplianceOption": true
+            },
+            {
+              "id": "98aba10a-a1ea-4cdf-a1ce-5b6e74056456",
+              "text": "Slovenien",
+              "validComplianceOption": true
+            },
+            {
+              "id": "ff88a192-a703-44f6-84be-535d23b116b2",
+              "text": "Spanien",
+              "validComplianceOption": true
+            },
+            {
+              "id": "f49249a4-0314-4873-924a-2d7a22dfeb95",
+              "text": "Sydafrika",
+              "validComplianceOption": true
+            },
+            {
+              "id": "279de04c-74ae-4a80-9e9e-13c26a4cd003",
+              "text": "Sydkorea",
+              "validComplianceOption": true
+            },
+            {
+              "id": "c7569fcb-130e-4b8c-8ca9-b17d41afe12a",
+              "text": "Tjeckien",
+              "validComplianceOption": true
+            },
+            {
+              "id": "c0380dd6-effd-4702-a2b0-cf29082c804e",
+              "text": "Turks- och Caicosöarna",
+              "validComplianceOption": true
+            },
+            {
+              "id": "fb893bf1-5e1b-4723-9aeb-8f20e46914d9",
+              "text": "Tyskland",
+              "validComplianceOption": true
+            },
+            {
+              "id": "dfe3f06d-a1cd-4794-9cfe-97ee42a022db",
+              "text": "Ungern",
+              "validComplianceOption": true
+            },
+            {
+              "id": "444aee8d-e239-4f71-bf6e-f6f6ceb2bd3c",
+              "text": "Uruguay",
+              "validComplianceOption": true
+            },
+            {
+              "id": "7f6654f0-c771-49cd-9e99-fcc5d7f32190",
+              "text": "USA",
+              "validComplianceOption": false
+            },
+            {
+              "id": "487c72c4-907d-4487-9a92-b2e4d26d65cb",
+              "text": "Österrike",
+              "validComplianceOption": true
+            }
+          ],
+          "selectedOptions": null,
+          "validationMessage": "valideringsmeddelande",
+          "id": "50fe31cd-ca80-4f81-a181-1388a0913eaf",
+          "title": "Var bor du?",
+          "description": "Hus eller koja",
+          "extendedTitle": null,
+          "extendedDescription": null,
+          "parameters": null
+        },
+        {
+          "questionType": 2,
+          "selectType": 1,
+          "options": [
+            {
+              "id": "74e90838-6d71-4743-8c6e-f4b7d49ca0f8",
+              "text": "Albanien",
+              "validComplianceOption": true
+            },
+            {
+              "id": "5577fe7d-61c9-4e53-a42e-dd0050cf6e49",
+              "text": "Andorra",
+              "validComplianceOption": true
+            },
+            {
+              "id": "043d5d0d-3ec9-4afe-8cd2-10b13cdca55a",
+              "text": "Anguilla",
+              "validComplianceOption": false
+            }
+          ],
+          "selectedOptions": null,
+          "validationMessage": "",
+          "id": "834cfcad-3061-450d-a977-3c1f4347bf4d",
+          "title": "Var bor du igen?",
+          "description": "",
+          "extendedTitle": null,
+          "extendedDescription": null,
+          "parameters": null
+        }
+      ]
+    }
+  ]
+}

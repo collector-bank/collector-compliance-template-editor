@@ -1,0 +1,352 @@
+{
+    "categories": [
+        {
+            "categoryType": 1,
+            "description": "I henhold til Lov om hvitvasking må Collector, som andre finansinstitusjoner, ha en viss kunnskap om sine kunder. Vi ber deg om å svare på spørsmålene nedenfor.",
+            "extendedDescription": null,
+            "extendedTitle": null,
+            "questions": [
+                {
+                    "description": "",
+                    "extendedDescription": null,
+                    "extendedTitle": null,
+                    "id": "cdf2517d-4786-4e20-9572-a28787179cf6",
+                    "options": [
+                        {
+                            "followUpQuestions": [
+                                {
+                                    "answer": null,
+                                    "description": "",
+                                    "extendedDescription": null,
+                                    "extendedTitle": null,
+                                    "id": "2336d06b-1e05-4a38-b189-995ac9641f3e",
+                                    "isMandatory": false,
+                                    "maxLength": 0,
+                                    "parameters": null,
+                                    "questionType": 1,
+                                    "title": "I hvilket land er bedriften eller noen av dens (ledere eller beslutningstakere) skattepliktig i?"
+                                }
+                            ],
+                            "id": "ac8417db-c4ac-4294-9c4d-8948d737ae6a",
+                            "isComplianceCheckNeeded": false,
+                            "text": "Ja"
+                        },
+                        {
+                            "followUpQuestions": [],
+                            "id": "0e246fba-1c42-47e6-9922-ac095b4cb076",
+                            "isComplianceCheckNeeded": false,
+                            "text": "Nei"
+                        }
+                    ],
+                    "parameters": null,
+                    "questionType": 0,
+                    "selectType": 0,
+                    "selectedOptions": null,
+                    "title": "Er bedriften eller noen av dens (reelle ansvarlige personer) skattepliktig i et annet land?"
+                },
+                {
+                    "answers": null,
+                    "description": null,
+                    "extendedDescription": null,
+                    "extendedTitle": null,
+                    "id": "e0b03099-1bca-4355-9395-a1553e513242",
+                    "maxRepeat": 5,
+                    "parameters": {
+                        "subjective": "huvudman"
+                    },
+                    "questionType": 3,
+                    "questions": [
+                        {
+                            "answer": null,
+                            "description": null,
+                            "extendedDescription": null,
+                            "extendedTitle": null,
+                            "id": "411ad965-a31a-470f-bb86-5d151a8e7bd0",
+                            "isMandatory": true,
+                            "maxLength": 255,
+                            "parameters": null,
+                            "questionType": 1,
+                            "title": "Navn"
+                        },
+                        {
+                            "answer": null,
+                            "description": null,
+                            "extendedDescription": null,
+                            "extendedTitle": null,
+                            "id": "0b93bdf7-8469-4505-a64b-be74a166c51f",
+                            "isMandatory": true,
+                            "maxLength": 13,
+                            "parameters": null,
+                            "questionType": 1,
+                            "title": "Personnummer"
+                        }
+                    ],
+                    "title": "Vennligst oppgi alle (reelle ansvarlige personer) i bedriften"
+                }
+            ],
+            "title": "Spørsmål om hvitvaskingsloven"
+        },
+        {
+            "categoryType": 0,
+            "description": null,
+            "extendedDescription": null,
+            "extendedTitle": null,
+            "questions": [
+                {
+                    "description": null,
+                    "extendedDescription": null,
+                    "extendedTitle": null,
+                    "id": "5e2bd87e-a95a-47e9-a287-030e72f47e4a",
+                    "options": [
+                        {
+                            "followUpQuestions": [],
+                            "id": "6ef31147-8cac-402e-b9d0-e073b21dfc40",
+                            "isComplianceCheckNeeded": false,
+                            "text": "Nei"
+                        },
+                        {
+                            "followUpQuestions": [
+                                {
+                                    "description": "",
+                                    "extendedDescription": null,
+                                    "extendedTitle": null,
+                                    "id": "0982eb73-ab63-4df6-a339-6d1bba0cf65b",
+                                    "options": [
+                                        {
+                                            "followUpQuestions": [],
+                                            "id": "2ec356eb-b593-4910-bd5f-00f4a89beca5",
+                                            "isComplianceCheckNeeded": true,
+                                            "text": "Statsoverhode"
+                                        },
+                                        {
+                                            "followUpQuestions": [],
+                                            "id": "0013c6c8-1de7-45ee-96d2-c1f3842b9f46",
+                                            "isComplianceCheckNeeded": true,
+                                            "text": "Regeringsjef"
+                                        },
+                                        {
+                                            "followUpQuestions": [],
+                                            "id": "5eaed2b5-d667-4738-8da1-bc73839e90f2",
+                                            "isComplianceCheckNeeded": true,
+                                            "text": "Minister"
+                                        },
+                                        {
+                                            "followUpQuestions": [],
+                                            "id": "5835f89c-7282-45ee-bc8c-282afc5a81f6",
+                                            "isComplianceCheckNeeded": true,
+                                            "text": "Assisterende minister eller nestleder"
+                                        },
+                                        {
+                                            "followUpQuestions": [],
+                                            "id": "63fab818-4d8c-46c3-993f-93060e07e016",
+                                            "isComplianceCheckNeeded": true,
+                                            "text": "Stortingsrepresentant"
+                                        },
+                                        {
+                                            "followUpQuestions": [],
+                                            "id": "95410246-d8fc-4edf-990f-a9dfe129c944",
+                                            "isComplianceCheckNeeded": true,
+                                            "text": "Dommer i høyesterett"
+                                        },
+                                        {
+                                            "followUpQuestions": [],
+                                            "id": "dcc277b3-1f62-4448-a941-c7190ab7dc5f",
+                                            "isComplianceCheckNeeded": true,
+                                            "text": "Høyere tjenestemann hos riksrevisjon/revisjonsmyndighet"
+                                        },
+                                        {
+                                            "followUpQuestions": [],
+                                            "id": "50184f4d-ca4c-4009-9933-10e0ddbddff3",
+                                            "isComplianceCheckNeeded": true,
+                                            "text": "Styremedlem i sentralbank"
+                                        },
+                                        {
+                                            "followUpQuestions": [],
+                                            "id": "b5ad497e-fd68-412f-b1e9-a4a385c5081a",
+                                            "isComplianceCheckNeeded": true,
+                                            "text": "Ambassadør"
+                                        },
+                                        {
+                                            "followUpQuestions": [],
+                                            "id": "651e2d75-b3fa-4ff2-ad51-c880f00134e7",
+                                            "isComplianceCheckNeeded": true,
+                                            "text": "Høyere offiser i Forsvaret"
+                                        },
+                                        {
+                                            "followUpQuestions": [],
+                                            "id": "e639cc3f-e4b0-4ba0-802c-de177215cd8b",
+                                            "isComplianceCheckNeeded": true,
+                                            "text": "Medlem av politisk partis styre"
+                                        },
+                                        {
+                                            "followUpQuestions": [],
+                                            "id": "c8720076-1a5b-47b8-b7fb-6f40401193aa",
+                                            "isComplianceCheckNeeded": true,
+                                            "text": "Konsernsjef eller styremedlem i statseid bedrift"
+                                        },
+                                        {
+                                            "followUpQuestions": [],
+                                            "id": "afdbcb21-35d3-4da9-bd09-a1a28ffeb38e",
+                                            "isComplianceCheckNeeded": true,
+                                            "text": "Person i ledelsen i en internasjonal organisasjon"
+                                        },
+                                        {
+                                            "followUpQuestions": [],
+                                            "id": "8570c3ae-7490-47d6-af3c-aa22491d7c7c",
+                                            "isComplianceCheckNeeded": true,
+                                            "text": "Stortingsmedlem"
+                                        },
+                                        {
+                                            "followUpQuestions": [],
+                                            "id": "79e5b8c4-3265-416b-a268-a51464c89abb",
+                                            "isComplianceCheckNeeded": true,
+                                            "text": "Annet"
+                                        }
+                                    ],
+                                    "parameters": null,
+                                    "questionType": 0,
+                                    "selectType": 1,
+                                    "selectedOptions": null,
+                                    "title": "Tittel"
+                                }
+                            ],
+                            "id": "4d5de377-de43-4160-8116-91a88e68cd4e",
+                            "isComplianceCheckNeeded": true,
+                            "text": "Ja, en eller flere av (lederne eller beslutningstakerne) er politisk eksponert"
+                        },
+                        {
+                            "followUpQuestions": [
+                                {
+                                    "answer": null,
+                                    "description": null,
+                                    "extendedDescription": null,
+                                    "extendedTitle": null,
+                                    "id": "d87ff772-feab-404e-85c5-8c513da28b88",
+                                    "isMandatory": true,
+                                    "maxLength": 0,
+                                    "parameters": null,
+                                    "questionType": 1,
+                                    "title": "Angi navnet til de (lederne eller beslutningstakerne) med nær relasjon til en politisk eksponert person"
+                                },
+                                {
+                                    "description": "",
+                                    "extendedDescription": null,
+                                    "extendedTitle": null,
+                                    "id": "e6315c47-433f-4994-abe2-425e24adf73d",
+                                    "options": [
+                                        {
+                                            "followUpQuestions": [],
+                                            "id": "8618d1d8-27d0-4035-b2da-5874a722b631",
+                                            "isComplianceCheckNeeded": true,
+                                            "text": "Statsoverhode"
+                                        },
+                                        {
+                                            "followUpQuestions": [],
+                                            "id": "ac979f7c-ba5d-4464-9822-1c28e12e8436",
+                                            "isComplianceCheckNeeded": true,
+                                            "text": "Regeringsjef"
+                                        },
+                                        {
+                                            "followUpQuestions": [],
+                                            "id": "e9241154-0d9b-4a0e-beb1-4b550a210dd0",
+                                            "isComplianceCheckNeeded": true,
+                                            "text": "Minister"
+                                        },
+                                        {
+                                            "followUpQuestions": [],
+                                            "id": "33de6853-cd3e-49f7-9dfe-c553014dcdb7",
+                                            "isComplianceCheckNeeded": true,
+                                            "text": "Assisterende minister eller nestleder"
+                                        },
+                                        {
+                                            "followUpQuestions": [],
+                                            "id": "15f7d3ee-6718-4e56-bc94-7aa970087ddf",
+                                            "isComplianceCheckNeeded": true,
+                                            "text": "Stortingsrepresentant"
+                                        },
+                                        {
+                                            "followUpQuestions": [],
+                                            "id": "ba2409c7-0699-4c26-a1b6-13f3e8d5fc95",
+                                            "isComplianceCheckNeeded": true,
+                                            "text": "Dommer i høyesterett"
+                                        },
+                                        {
+                                            "followUpQuestions": [],
+                                            "id": "ccc0f5a4-393d-4163-8617-4e0386e21fb4",
+                                            "isComplianceCheckNeeded": true,
+                                            "text": "Høyere tjenestemann hos riksrevisjon/revisjonsmyndighet"
+                                        },
+                                        {
+                                            "followUpQuestions": [],
+                                            "id": "950ef2b1-9d1a-458d-944f-a1aaea69d4e7",
+                                            "isComplianceCheckNeeded": true,
+                                            "text": "Styremedlem i sentralbank"
+                                        },
+                                        {
+                                            "followUpQuestions": [],
+                                            "id": "f1ed1405-5727-4ddf-84de-ceaa7a109fcf",
+                                            "isComplianceCheckNeeded": true,
+                                            "text": "Ambassadør"
+                                        },
+                                        {
+                                            "followUpQuestions": [],
+                                            "id": "45fd155a-15fe-4968-b098-e76c35cdd98f",
+                                            "isComplianceCheckNeeded": true,
+                                            "text": "Høyere offiser i Forsvaret"
+                                        },
+                                        {
+                                            "followUpQuestions": [],
+                                            "id": "0a3bfa27-3f6f-49ac-85c6-81d159ac587e",
+                                            "isComplianceCheckNeeded": true,
+                                            "text": "Medlem av politisk partis styre"
+                                        },
+                                        {
+                                            "followUpQuestions": [],
+                                            "id": "77a6abd9-6043-4c70-a603-1c4dfd3dbaf1",
+                                            "isComplianceCheckNeeded": true,
+                                            "text": "Konsernsjef eller styremedlem i statseid bedrift"
+                                        },
+                                        {
+                                            "followUpQuestions": [],
+                                            "id": "733517e6-2085-4520-acaa-426f3ff42fc3",
+                                            "isComplianceCheckNeeded": true,
+                                            "text": "Person i ledelsen i en internasjonal organisasjon"
+                                        },
+                                        {
+                                            "followUpQuestions": [],
+                                            "id": "93d1db74-4b86-4c92-971e-b1e634f4b517",
+                                            "isComplianceCheckNeeded": true,
+                                            "text": "Stortingsmedlem"
+                                        },
+                                        {
+                                            "followUpQuestions": [],
+                                            "id": "ec694d93-64af-418d-9f84-55c151e5aa24",
+                                            "isComplianceCheckNeeded": true,
+                                            "text": "Annet"
+                                        }
+                                    ],
+                                    "parameters": null,
+                                    "questionType": 0,
+                                    "selectType": 1,
+                                    "selectedOptions": null,
+                                    "title": "Den politisk eksponerte personens tittel"
+                                }
+                            ],
+                            "id": "ea9db58a-a42f-49e6-a3e8-9e09019a45a1",
+                            "isComplianceCheckNeeded": true,
+                            "text": "Ja, en eller flere av (lederne eller beslutningstakerne) har nær relasjon til en politisk eksponert person"
+                        }
+                    ],
+                    "parameters": null,
+                    "questionType": 0,
+                    "selectType": 0,
+                    "selectedOptions": null,
+                    "title": "Er det noen av de (reelle ansvarlige personene) i en politisk utsatt stilling (PEP), f.eks. arbeider i Storting eller regjering, har en høy stilling innen en statlig bedrift, forsvaret eller rettsvesenet?"
+                }
+            ],
+            "title": "Politisk eksponert person"
+        }
+    ],
+    "createdAt": "2018-07-10T09:08:26.3036954+00:00",
+    "name": "Corporate Portal Norwegian"
+}
