@@ -1,1 +1,1 @@
-elm make .\src\Main.elm --output collector-compliance-template-editor.js
+elm make .\src\Main.elm --output index.js
