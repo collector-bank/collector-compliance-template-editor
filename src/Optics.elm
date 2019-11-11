@@ -1,4 +1,4 @@
-module OpticsNew exposing (..)
+module Optics exposing (..)
 
 import Model exposing (..)
 import QuestionTemplate.Model exposing (QuestionTemplate)

@@ -19,7 +19,7 @@ import JsonModel.Deserialization exposing (fromJson)
 import JsonModel.Serialization exposing (toJson)
 import Ports exposing (..)
 import Model exposing (..)
-import OpticsNew exposing (..)
+import Optics exposing (..)
 import Deserialization exposing (..)
 import Views exposing (rootView)
 

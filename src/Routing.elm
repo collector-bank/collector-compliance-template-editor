@@ -2,7 +2,7 @@ module Routing exposing (..)
 
 import Url exposing (Url)
 import Model exposing (SelectedEntity(..), RoutePart(..), Route, Model)
-import OpticsNew exposing (..)
+import Optics exposing (..)
 import OpticsCore exposing (..)
 import QuestionTemplate.Optics exposing (..)
 import QuestionCategory.Optics exposing (..)
