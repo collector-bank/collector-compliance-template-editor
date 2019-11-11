@@ -1,4 +1,4 @@
-module Menu exposing (menuView)
+module Views exposing (rootView)
 
 import ViewComponent exposing (..)
 import Html exposing (..)
@@ -15,6 +15,14 @@ import Monocle.Optional exposing (..)
 import Optics exposing (..)
 import Model exposing (..)
 import OpticsNew exposing (..)
+import QuestionTemplate.Views exposing (..)
+import Question.OptionDetailsView exposing(..)
+import QuestionCategory.DetailsView exposing (..)
+import Question.QuestionDetailsView exposing (..)
+import JsonModel.DetailsView exposing (..)
+import Routing exposing (..)
+import Bootstrap.CDN as CDN
+import Bootstrap.Grid as Grid
 
 panelNoHeader content =
     div [ class "card", style "margin" "5px", style "width" "100%", style "background-color" "#ddd" ] 
@@ -55,3 +63,35 @@ menuView makeMenuMsg = eval <| \model modelTraits focus menuState ->
                         ]
                     ]
                 ]
+
+rootView : Model -> Html Msg
+rootView model = 
+    let
+        modelTraits = { makeMsg = UpdateModel, makeIdMsg = UpdateModel << withNewId }
+        menuView_ = menuView MenuAction model modelTraits menuStateOfModel
+        questionTemplateView_ = questionTemplateView model modelTraits questionTemplateOfModel
+        questionDetailsView_ = 
+            case routeToSelectedEntity model.route of 
+                Category focus -> questionCategoryDetailsView model modelTraits focus
+                Model.Question focus -> questionDetailsView model modelTraits focus
+                Option focus -> optionDetailsView model modelTraits focus
+                _ -> text ""
+        jsonModelView_ = jsonModelView model modelTraits questionTemplateOfModel
+    in
+        Grid.container [ style "background-color" "#333", style "max-width" "100%" ]  -- #e10075,  #6b1faf
+            [ CDN.stylesheet -- creates an inline style node with the Bootstrap CSS
+            , div [ class "row" ] 
+                [ div [ class "col" ] 
+                    [ menuView_ ]
+                ]
+            , div [ class "row" ]
+                [ div [ class "col-7" ]
+                    [ questionTemplateView_ ]
+                , div [ class "col-5"] 
+                    [ questionDetailsView_  ]
+                ]
+            , div [ class "row"]
+                [ div [ class "col" ] 
+                    [ jsonModelView_ ]
+                ]                
+            ]

@@ -8,25 +8,20 @@ import Browser exposing (Document,application)
 import Browser.Navigation as Nav
 import Routing exposing (..)
 import Random exposing (initialSeed)
-import Question.QuestionDetailsView exposing (..)
-import Question.OptionDetailsView exposing(..)
 import QuestionCategory.Model exposing (..)
 import QuestionCategory.Optics exposing (..)
-import QuestionCategory.DetailsView exposing (..)
 import Optics exposing (..)
-import JsonModel.DetailsView exposing (..)
 import QuestionTemplate.Model exposing (..)
-import QuestionTemplate.Views exposing (..)
 import QuestionTemplate.Optics exposing (..)
 import ViewHelpers exposing (..)
 import Url exposing (Url)
-import Menu exposing (..)
 import JsonModel.Deserialization exposing (fromJson)
 import JsonModel.Serialization exposing (toJson)
 import Ports exposing (..)
 import Model exposing (..)
 import OpticsNew exposing (..)
 import Deserialization exposing (..)
+import Views exposing (rootView)
 
 -- Program entry point
 
@@ -113,38 +108,4 @@ update msg model =
 -- Views
 
 view : Model -> Document Msg
-view model = 
-    let
-        rootView : Html Msg
-        rootView = 
-            let
-                modelTraits = { makeMsg = UpdateModel, makeIdMsg = UpdateModel << withNewId }
-                menuView_ = menuView MenuAction model modelTraits menuStateOfModel
-                questionTemplateView_ = questionTemplateView model modelTraits questionTemplateOfModel
-                questionDetailsView_ = 
-                    case routeToSelectedEntity model.route of 
-                        Category focus -> questionCategoryDetailsView model modelTraits focus
-                        Model.Question focus -> questionDetailsView model modelTraits focus
-                        Option focus -> optionDetailsView model modelTraits focus
-                        _ -> text ""
-                jsonModelView_ = jsonModelView model modelTraits questionTemplateOfModel
-            in
-                Grid.container [ style "background-color" "#333", style "max-width" "100%" ]  -- #e10075,  #6b1faf
-                    [ CDN.stylesheet -- creates an inline style node with the Bootstrap CSS
-                    , div [ class "row" ] 
-                        [ div [ class "col" ] 
-                            [ menuView_ ]
-                        ]
-                    , div [ class "row" ]
-                        [ div [ class "col-7" ]
-                            [ questionTemplateView_ ]
-                        , div [ class "col-5"] 
-                            [ questionDetailsView_  ]
-                        ]
-                    , div [ class "row"]
-                        [ div [ class "col" ] 
-                            [ jsonModelView_ ]
-                        ]                
-                    ]
-    in
-        { title = "Compliance Template Editor", body = [ rootView ] }
+view model = { title = "Compliance Template Editor", body = [ rootView model ] }
