@@ -6,13 +6,8 @@ import Bootstrap.CDN as CDN
 import Bootstrap.Grid as Grid
 import Browser exposing (Document,application)
 import Browser.Navigation as Nav
-import Monocle.Optional exposing (Optional)
-import Monocle.Lens exposing (Lens)
 import Routing exposing (..)
-import Uuid exposing (Uuid, uuidGenerator)
-import Random exposing (Seed, step, initialSeed)
-import Question.Model exposing (..)
-import Question.Optics exposing (..)
+import Random exposing (initialSeed)
 import Question.QuestionDetailsView exposing (..)
 import Question.OptionDetailsView exposing(..)
 import QuestionCategory.Model exposing (..)
