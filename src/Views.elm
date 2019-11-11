@@ -43,9 +43,9 @@ menuView = eval <| \model modelTraits focus menuState ->
         productDropdown : Html Msg
         productDropdown = select [ onInput updateSelectedProduct, class "form-control" ] (List.map productToOption productsAndEmpty)
         loadQuestionTemplate : Msg
-        loadQuestionTemplate = MenuAction <| LoadQuestionTemplate menuState.selectedProduct
+        loadQuestionTemplate = LoadQuestionTemplate menuState.selectedProduct
         saveQuestionTemplate : Msg
-        saveQuestionTemplate = MenuAction <| SaveQuestionTemplate menuState.selectedProduct
+        saveQuestionTemplate = SaveQuestionTemplate menuState.selectedProduct
         makeFormGroup : Maybe String -> Html Msg -> Html Msg
         makeFormGroup maybeLabel child = 
             let 

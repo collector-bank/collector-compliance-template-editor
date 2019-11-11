@@ -26,7 +26,8 @@ type alias Model = { route : Route, key : Nav.Key, uuidSeed : Seed, questionTemp
 type Msg = UpdateModel (Model -> Model)
          | ChangedUrl Url
          | ClickedLink Browser.UrlRequest
-         | MenuAction MenuMsg
+         | LoadQuestionTemplate String
+         | SaveQuestionTemplate String
          | QuestionTemplateLoaded QuestionTemplate
          | QuestionTemplateSaved
          | NoAction
@@ -44,9 +45,6 @@ type RoutePart
     | FollowUpQuestion String
 
 type alias Route = List RoutePart
-
-type MenuMsg = LoadQuestionTemplate String
-             | SaveQuestionTemplate String
 
 type alias ProductDefinition = { id : String, name : String }
 

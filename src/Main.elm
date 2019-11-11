@@ -35,10 +35,6 @@ main = Browser.application {
          onUrlRequest = ClickedLink 
        }
 
-
--- Helpers
-
-
 -- Init
 
 init : () -> Url -> Nav.Key -> ( Model, Cmd Msg )
@@ -92,12 +88,10 @@ update msg model =
                     ( model, Nav.load href )
         ChangedUrl url -> 
             ({ model | route = parseLocation url }, Cmd.none)
-        MenuAction action ->
-            case action of            
-                LoadQuestionTemplate product ->
-                    (model, loadQuestionTemplate product)
-                SaveQuestionTemplate product ->
-                    (model, saveQuestionTemplate (product, toJson model.questionTemplate))
+        LoadQuestionTemplate product ->
+            (model, loadQuestionTemplate product)
+        SaveQuestionTemplate product ->
+            (model, saveQuestionTemplate (product, toJson model.questionTemplate))
         QuestionTemplateLoaded questionTemplate ->
             ({ model | questionTemplate = questionTemplate }, Cmd.none)
         QuestionTemplateSaved ->
