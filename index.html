@@ -23,12 +23,12 @@
 
     app.ports.saveQuestionTemplate.subscribe(function (farg) {
       console.log("saveQuestionTemplate called.", farg)
-      app.ports.questionTemplateSaved.send("ok!");
+      setTimeout(function(){ 
+        app.ports.questionTemplateSaved.send("ok!");
+      }, 3000);      
     });
 
-    app.ports.loadQuestionTemplate.subscribe(function (farg) {
-        console.log("loadQuestionTemplate called.", farg)
-        app.ports.questionTemplateLoaded.send(`
+    const fakeTemplate = `
  {
     "name": "some name",
     "categories": [
@@ -51,7 +51,13 @@
         }
     ]
 }        
-        `);
+        `;
+
+    app.ports.loadQuestionTemplate.subscribe(function (farg) {
+        console.log("loadQuestionTemplate called.", farg)
+        setTimeout(function(){ 
+          app.ports.questionTemplateLoaded.send(fakeTemplate);
+        }, 3000);      
     });    
   </script>
 </body>

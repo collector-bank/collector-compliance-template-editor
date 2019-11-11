@@ -2,7 +2,7 @@ module Optics exposing (..)
 
 import Model exposing (..)
 import QuestionTemplate.Model exposing (QuestionTemplate)
-import OpticsCore exposing (Focus)
+import OpticsCore exposing (Focus, composeFocus)
 import Monocle.Lens exposing (Lens)
 import Monocle.Optional exposing (Optional)
 
@@ -32,3 +32,11 @@ productsOfMenuState = {
         path = ["products"]
     }
 
+isBusyOfMenuState : Focus MenuState Bool
+isBusyOfMenuState = {
+        optional = Lens (\s -> s.isBusy) (\t s -> { s | isBusy = t }) |> Monocle.Optional.fromLens,
+        path = ["isBusy"]
+    }
+
+isBusyOfModel : Focus Model Bool
+isBusyOfModel = menuStateOfModel |> composeFocus isBusyOfMenuState

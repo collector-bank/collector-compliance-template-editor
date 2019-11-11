@@ -50,7 +50,8 @@ type alias ProductDefinition = { id : String, name : String }
 
 type alias MenuState = 
     { products : List ProductDefinition,
-      selectedProduct : String
+      selectedProduct : String,
+      isBusy : Bool
     }
 
 -- Id generation

@@ -22,6 +22,7 @@ import Model exposing (..)
 import Optics exposing (..)
 import Deserialization exposing (..)
 import Views exposing (rootView)
+import Monocle.Optional
 
 -- Program entry point
 
@@ -51,6 +52,7 @@ init flags location key =
             , menuState = 
                 { products = [ ]
                 , selectedProduct = ""
+                , isBusy = False
                 }
             }
     in
@@ -77,27 +79,34 @@ subscriptions model =
 
 update : Msg -> Model -> (Model, Cmd Msg)
 update msg model = 
-    case Debug.log "MESSAGE: " msg of 
-        UpdateModel f -> 
-            (f model, Cmd.none)
-        ClickedLink urlRequest ->
-            case urlRequest of
-                Browser.Internal url ->
-                    ( model, Nav.pushUrl model.key (Url.toString url) )
-                Browser.External href ->
-                    ( model, Nav.load href )
-        ChangedUrl url -> 
-            ({ model | route = parseLocation url }, Cmd.none)
-        LoadQuestionTemplate product ->
-            (model, loadQuestionTemplate product)
-        SaveQuestionTemplate product ->
-            (model, saveQuestionTemplate (product, toJson model.questionTemplate))
-        QuestionTemplateLoaded questionTemplate ->
-            ({ model | questionTemplate = questionTemplate }, Cmd.none)
-        QuestionTemplateSaved ->
-            (model, Cmd.none)
-        NoAction ->
-            (model, Cmd.none)
+    let 
+        toggleBusy : Model -> Model
+        toggleBusy = Monocle.Optional.modify isBusyOfModel.optional not
+    in
+        case Debug.log "MESSAGE: " msg of 
+            UpdateModel f -> 
+                (f model, Cmd.none)
+            ClickedLink urlRequest ->
+                case urlRequest of
+                    Browser.Internal url ->
+                        ( model, Nav.pushUrl model.key (Url.toString url) )
+                    Browser.External href ->
+                        ( model, Nav.load href )
+            ChangedUrl url -> 
+                ({ model | route = parseLocation url }, Cmd.none)
+            LoadQuestionTemplate product ->        
+                ( toggleBusy model, loadQuestionTemplate product)
+            SaveQuestionTemplate product ->
+                ( toggleBusy model, saveQuestionTemplate (product, toJson model.questionTemplate))
+            QuestionTemplateLoaded questionTemplate ->
+                let 
+                    newModel = toggleBusy model
+                in
+                    ({ newModel | questionTemplate = questionTemplate }, Cmd.none)
+            QuestionTemplateSaved ->
+                ( toggleBusy model, Cmd.none)
+            NoAction ->
+                (model, Cmd.none)
 
 -- Views
 

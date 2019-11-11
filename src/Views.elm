@@ -2,7 +2,6 @@ module Views exposing (rootView)
 
 import ViewComponent exposing (..)
 import Html exposing (..)
-import Html.Attributes exposing (..)
 import Html.Attributes as HA exposing (..)
 import Html.Events exposing (..)
 import QuestionTemplate.Model exposing (..)
@@ -20,13 +19,19 @@ import QuestionCategory.DetailsView exposing (..)
 import Question.QuestionDetailsView exposing (..)
 import JsonModel.DetailsView exposing (..)
 import Routing exposing (..)
-import Bootstrap.CDN as CDN
 import Bootstrap.Grid as Grid
 
+panelNoHeader : List (Html msg) -> Html msg
 panelNoHeader content =
     div [ class "card", style "margin" "5px", style "width" "100%", style "background-color" "#ddd" ] 
         [ div [ class "card-body" ] content ]
 
+spinner : Bool -> Html msg
+spinner isBusy = 
+    if isBusy then
+        div [ class "spinner-border" ] [ ]
+    else
+        div [ ] [ ]
 
 menuView : ViewComponent MenuState Model Msg
 menuView = eval <| \model modelTraits focus menuState ->
@@ -56,14 +61,24 @@ menuView = eval <| \model modelTraits focus menuState ->
                 div [ class "form-group my-1 mr-sm-2" ] children
     in
         panelNoHeader <|
-                [ span [] 
+                [ div [ class "d-flex flex-nowrap" ] 
                     [ Html.form [ class "form-inline" ] 
                         [ makeFormGroup (Just "Product") <| productDropdown
                         , makeFormGroup Nothing <| button [ class "btn btn-primary", type_ "button", onClick loadQuestionTemplate, disabled (isProductSelected nullProduct) ] [ text "Load"]      
                         , makeFormGroup Nothing <| button [ class "btn btn-primary", type_ "button", onClick saveQuestionTemplate, disabled (isProductSelected nullProduct) ] [ text "Save"]
                         ]
+                    , spinner menuState.isBusy
                     ]
                 ]
+
+-- Replacement for CDN.stylesheet to get latest bootstrap
+stylesheet : String -> Html msg
+stylesheet ref  =
+    node "link"
+        [ rel "stylesheet"
+        , href ref
+        ]
+        []
 
 rootView : Model -> Html Msg
 rootView model = 
@@ -80,7 +95,7 @@ rootView model =
         jsonModelView_ = jsonModelView model modelTraits questionTemplateOfModel
     in
         Grid.container [ style "background-color" "#333", style "max-width" "100%" ]  -- #e10075,  #6b1faf
-            [ CDN.stylesheet -- creates an inline style node with the Bootstrap CSS
+            [ stylesheet "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" -- creates an inline style node with the Bootstrap CSS            
             , div [ class "row" ] 
                 [ div [ class "col" ] 
                     [ menuView_ ]
