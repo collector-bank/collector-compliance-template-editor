@@ -29,6 +29,8 @@ import Menu exposing (..)
 import JsonModel.Deserialization exposing (fromJson)
 import JsonModel.Serialization exposing (toJson)
 import Ports exposing (..)
+import Model exposing (..)
+import OpticsNew exposing (..)
 
 -- Program entry point
 
@@ -42,48 +44,6 @@ main = Browser.application {
          onUrlRequest = ClickedLink 
        }
 
--- Types
-
-type alias Model = { route : Route, key : Nav.Key, uuidSeed : Seed, questionTemplate : QuestionTemplate, menuState : MenuState }
-
-type Msg = UpdateModel (Model -> Model)
-         | ChangedUrl Url
-         | ClickedLink Browser.UrlRequest
-         | MenuAction MenuMsg
-         | QuestionTemplateLoaded QuestionTemplate
-         | QuestionTemplateSaved
-         | NoAction
-
-type SelectedEntity a = Question (Focus a Question)
-                      | Option (Focus a QuestionOption)
-                      | Category (Focus a QuestionCategory )
-                      | None
-
--- Id generation
-
-type alias Seedable a = { a | uuidSeed : Seed }
-
-withNewId : (String -> Seedable a -> Seedable a) -> Seedable a -> Seedable a
-withNewId f model =
-            let
-                (newUuid, newSeed) =
-                    step uuidGenerator model.uuidSeed
-            in
-                f (Uuid.toString newUuid) { model | uuidSeed = newSeed } 
-
--- Optics
-
-questionTemplateOfModel : Focus Model QuestionTemplate
-questionTemplateOfModel = {
-        optional = Lens (\m -> m.questionTemplate) (\c m -> { m | questionTemplate = c }) |> Monocle.Optional.fromLens,
-        path = [ ]
-    }
-
-menuStateOfModel : Focus Model MenuState
-menuStateOfModel = {
-        optional = Lens (\m -> m.menuState) (\c m -> { m | menuState = c }) |> Monocle.Optional.fromLens,
-        path = [ ]
-    }  
 
 -- Helpers
 
@@ -115,7 +75,7 @@ routeToSelectedEntity =
                         focus_ = focus |> composeFocus questionsOfQuestionCategory |> composeFocus (questionOfQuestionList questionId)
                     in                
                         case xs of 
-                            [] -> Question <| focus_
+                            [] -> Model.Question <| focus_
                             _  -> subQuestionRouteToSelectedEntity xs focus_
                 _ -> None
 
@@ -134,7 +94,7 @@ routeToSelectedEntity =
                         focus_ = focus |> composeFocus questionTypeOfQuestion |> composeFocus questionGroupOfQuestion |> composeFocus questionsOfGroupQuestion |> composeFocus (questionOfQuestionList questionId)
                     in                
                         case xs of 
-                            [] -> Question <| focus_
+                            [] -> Model.Question <| focus_
                             _  -> subQuestionRouteToSelectedEntity xs focus_
                 _ -> None
 
@@ -146,7 +106,7 @@ routeToSelectedEntity =
                         focus_ = focus |> composeFocus followUpQuestionsOfOption |> composeFocus (questionOfQuestionList questionId)
                     in                
                         case xs of 
-                            [] -> Question <| focus_
+                            [] -> Model.Question <| focus_
                             _  -> subQuestionRouteToSelectedEntity xs focus_
                 
                 _ -> None
@@ -234,7 +194,7 @@ view model =
                 questionDetailsView_ = 
                     case routeToSelectedEntity model.route of 
                         Category focus -> questionCategoryDetailsView model modelTraits focus
-                        Question focus -> questionDetailsView model modelTraits focus
+                        Model.Question focus -> questionDetailsView model modelTraits focus
                         Option focus -> optionDetailsView model modelTraits focus
                         _ -> text ""
                 jsonModelView_ = jsonModelView model modelTraits questionTemplateOfModel
