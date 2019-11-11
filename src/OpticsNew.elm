@@ -1,9 +1,8 @@
 module OpticsNew exposing (..)
 
-import Model exposing (Model)
+import Model exposing (..)
 import QuestionTemplate.Model exposing (QuestionTemplate)
 import Optics exposing (Focus)
-import Menu exposing (MenuState)
 import Monocle.Lens exposing (Lens)
 import Monocle.Optional exposing (Optional)
 
@@ -20,3 +19,16 @@ menuStateOfModel = {
         optional = Lens (\m -> m.menuState) (\c m -> { m | menuState = c }) |> Monocle.Optional.fromLens,
         path = [ ]
     }  
+
+selectedProductOfMenuState : Focus MenuState String
+selectedProductOfMenuState = {
+        optional = Lens (\s -> s.selectedProduct) (\t s -> { s | selectedProduct = t }) |> Monocle.Optional.fromLens,
+        path = ["selectedProduct"]
+    }
+
+productsOfMenuState : Focus MenuState (List ProductDefinition)
+productsOfMenuState = {
+        optional = Lens (\s -> s.products) (\t s -> { s | products = t }) |> Monocle.Optional.fromLens,
+        path = ["products"]
+    }
+

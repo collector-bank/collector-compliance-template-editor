@@ -1,4 +1,4 @@
-module Menu exposing (MenuState, MenuMsg(..), menuView, productsOfMenuState, parseProducts)
+module Menu exposing (menuView)
 
 import ViewComponent exposing (..)
 import Html exposing (..)
@@ -13,44 +13,13 @@ import Optics exposing (..)
 import Monocle.Lens exposing (..)
 import Monocle.Optional exposing (..)
 import Optics exposing (..)
-import Json.Decode as D exposing (..)
-import Json.Decode.Pipeline as DP exposing (..)
-
-type MenuMsg = LoadQuestionTemplate String
-             | SaveQuestionTemplate String
-
-type alias ProductDefinition = { id : String, name : String }
-
-type alias MenuState = 
-    { products : List ProductDefinition,
-      selectedProduct : String
-    }
-
-parseProducts : String -> Result Error (List ProductDefinition)
-parseProducts = decodeString (D.list decodeProduct)
-
-decodeProduct : Decoder ProductDefinition
-decodeProduct = 
-    succeed ProductDefinition
-        |> DP.required "id" string
-        |> DP.required "name" string
+import Model exposing (..)
+import OpticsNew exposing (..)
 
 panelNoHeader content =
     div [ class "card", style "margin" "5px", style "width" "100%", style "background-color" "#ddd" ] 
         [ div [ class "card-body" ] content ]
 
-
-selectedProductOfMenuState : Focus MenuState String
-selectedProductOfMenuState = {
-        optional = Lens (\s -> s.selectedProduct) (\t s -> { s | selectedProduct = t }) |> Monocle.Optional.fromLens,
-        path = ["selectedProduct"]
-    }
-
-productsOfMenuState : Focus MenuState (List ProductDefinition)
-productsOfMenuState = {
-        optional = Lens (\s -> s.products) (\t s -> { s | products = t }) |> Monocle.Optional.fromLens,
-        path = ["products"]
-    }
 
 menuView : (MenuMsg -> msg) -> ViewComponent MenuState am msg
 menuView makeMenuMsg = eval <| \model modelTraits focus menuState ->

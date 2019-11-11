@@ -18,7 +18,6 @@ import QuestionTemplate.Model exposing (..)
 import QuestionTemplate.Views exposing (..)
 import QuestionTemplate.Optics exposing (..)
 import Url exposing (Url)
-import Menu exposing (..)
 
 -- Types
 
@@ -45,6 +44,16 @@ type RoutePart
     | FollowUpQuestion String
 
 type alias Route = List RoutePart
+
+type MenuMsg = LoadQuestionTemplate String
+             | SaveQuestionTemplate String
+
+type alias ProductDefinition = { id : String, name : String }
+
+type alias MenuState = 
+    { products : List ProductDefinition,
+      selectedProduct : String
+    }
 
 -- Id generation
 

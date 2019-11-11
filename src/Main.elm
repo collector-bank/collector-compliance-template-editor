@@ -31,6 +31,7 @@ import JsonModel.Serialization exposing (toJson)
 import Ports exposing (..)
 import Model exposing (..)
 import OpticsNew exposing (..)
+import Deserialization exposing (..)
 
 -- Program entry point
 
@@ -47,72 +48,6 @@ main = Browser.application {
 
 -- Helpers
 
-routeToSelectedEntity : Route -> SelectedEntity Model
-routeToSelectedEntity = 
-    let
-        categoryRouteToSelectedEntity : Route -> SelectedEntity Model
-        categoryRouteToSelectedEntity route =
-            case route of 
-                (CategoryRoute categoryTypeName)::xs -> 
-                    let
-                        focus_ categoryType = questionTemplateOfModel |> composeFocus categoriesOfQuestionTemplate |> composeFocus (questionCategoryOfQuestionCategoryList categoryType)
-                        makeResult categoryType = 
-                            case xs of 
-                                [] -> Category <| focus_ categoryType
-                                _  -> questionRouteToSelectedEntity xs (focus_ categoryType)
-                    in                
-                        case String.toUpper categoryTypeName of
-                            "PEP" -> makeResult PEP
-                            "AML" -> makeResult AML
-                            _ -> Debug.log ("No route found for category " ++ categoryTypeName) None
-                _ -> None
-
-        questionRouteToSelectedEntity : Route -> Focus a QuestionCategory -> SelectedEntity a
-        questionRouteToSelectedEntity route focus =
-            case route of 
-                (QuestionRoute questionId)::xs -> 
-                    let
-                        focus_ = focus |> composeFocus questionsOfQuestionCategory |> composeFocus (questionOfQuestionList questionId)
-                    in                
-                        case xs of 
-                            [] -> Model.Question <| focus_
-                            _  -> subQuestionRouteToSelectedEntity xs focus_
-                _ -> None
-
-        subQuestionRouteToSelectedEntity : Route -> Focus a Question -> SelectedEntity a
-        subQuestionRouteToSelectedEntity route focus =
-            case route of 
-                (OptionsRoute optionId)::xs -> 
-                    let
-                        focus_ = focus |> composeFocus questionTypeOfQuestion |> composeFocus selectQuestionOfQuestion |> composeFocus optionsOfSelectQuestion |> composeFocus (optionOfOptionsList optionId)
-                    in                
-                        case xs of 
-                            [] -> Option <| focus_
-                            _  -> optionRouteToSelectedEntity xs focus_
-                (GroupQuestion questionId)::xs ->
-                    let
-                        focus_ = focus |> composeFocus questionTypeOfQuestion |> composeFocus questionGroupOfQuestion |> composeFocus questionsOfGroupQuestion |> composeFocus (questionOfQuestionList questionId)
-                    in                
-                        case xs of 
-                            [] -> Model.Question <| focus_
-                            _  -> subQuestionRouteToSelectedEntity xs focus_
-                _ -> None
-
-        optionRouteToSelectedEntity : Route -> Focus a QuestionOption -> SelectedEntity a
-        optionRouteToSelectedEntity route focus =
-            case route of 
-                (FollowUpQuestion questionId)::xs -> 
-                    let
-                        focus_ = focus |> composeFocus followUpQuestionsOfOption |> composeFocus (questionOfQuestionList questionId)
-                    in                
-                        case xs of 
-                            [] -> Model.Question <| focus_
-                            _  -> subQuestionRouteToSelectedEntity xs focus_
-                
-                _ -> None
-        
-    in        
-        categoryRouteToSelectedEntity 
 
 -- Init
 
