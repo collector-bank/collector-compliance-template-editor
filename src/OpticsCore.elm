@@ -1,4 +1,4 @@
-module Optics exposing (..)
+module OpticsCore exposing (..)
 
 import Monocle.Optional exposing (Optional)
 import Monocle.Compose as Compose

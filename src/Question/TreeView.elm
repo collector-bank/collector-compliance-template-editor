@@ -7,7 +7,7 @@ import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
 import Bootstrap.ListGroup as ListGroup
-import Optics exposing (..)
+import OpticsCore exposing (..)
 import ViewHelpers exposing (..)
 import Monocle.Optional as Optional exposing (modify)
 import Icons

@@ -2,7 +2,7 @@ module QuestionTemplate.Optics exposing (..)
 
 import QuestionTemplate.Model exposing (..)
 import QuestionCategory.Model exposing (..)
-import Optics exposing (..)
+import OpticsCore exposing (..)
 import Monocle.Optional exposing (Optional)
 import Monocle.Lens exposing (Lens)
 

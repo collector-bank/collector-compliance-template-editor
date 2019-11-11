@@ -6,7 +6,7 @@ import ViewComponent exposing (..)
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
-import Optics exposing (..)
+import OpticsCore exposing (..)
 import ViewHelpers exposing (..)
 import Monocle.Optional as Optional
         

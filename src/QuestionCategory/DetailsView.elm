@@ -4,7 +4,7 @@ import QuestionCategory.Model exposing(..)
 import QuestionCategory.Optics exposing(..)
 import ViewComponent exposing (..)
 import Html exposing (..)
-import Optics exposing (..)
+import OpticsCore exposing (..)
 import ViewHelpers exposing (..)
 import Monocle.Optional as Optional
 

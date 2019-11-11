@@ -3,7 +3,7 @@ module Question.Optics exposing(..)
 import Question.Model exposing(..)
 import Monocle.Lens exposing (..)
 import Monocle.Optional exposing (..)
-import Optics exposing (..)
+import OpticsCore exposing (..)
 
 freeTextQuestionOfQuestion : Focus QuestionType FreeTextQuestionFields 
 freeTextQuestionOfQuestion = 
