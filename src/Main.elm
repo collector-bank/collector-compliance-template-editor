@@ -1,3 +1,5 @@
+module Main exposing (..)
+
 import Html exposing (Html, div, text, h1)
 import Html.Attributes exposing (style, class)
 import Bootstrap.CDN as CDN
