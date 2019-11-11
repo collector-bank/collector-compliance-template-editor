@@ -1,6 +1,6 @@
 module ViewComponent exposing (..)
 
-import Optics exposing (Focus)
+import OpticsCore exposing (Focus)
 import Html exposing (Html)
 
 -- View component types

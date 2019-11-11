@@ -4,7 +4,7 @@ import QuestionTemplate.Model exposing (..)
 import QuestionTemplate.Optics exposing (..)
 import QuestionCategory.TreeView exposing (..)
 import ViewComponent exposing (..)
-import Optics exposing (..)
+import OpticsCore exposing (..)
 import Html exposing (div, h1, text)
 import ViewHelpers exposing (..)
 

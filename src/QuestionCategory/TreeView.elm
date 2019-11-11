@@ -9,7 +9,7 @@ import Question.Model exposing (..)
 import Question.TreeView exposing (..)
 import Question.Optics exposing (questionOfQuestionList)
 import Bootstrap.ListGroup as ListGroup
-import Optics exposing (..)
+import OpticsCore exposing (..)
 import ViewHelpers exposing (..)
 import QuestionCategory.Model exposing (..)
 import QuestionCategory.Optics exposing (..)

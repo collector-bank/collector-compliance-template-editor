@@ -1,6 +1,6 @@
 {
   "name": "@collector-solutions/collector-compliance-template-editor",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Background\r ==========\r The compliance template editor is a web ui for editing question templates. A new question template can be created from scratch or an existing template can be modified.",
   "main": "index.js",
   "directories": {
@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "elm-test --fuzz 40",
-    "prepublish": "elm make ./src/Main.elm --output=index.js"
+    "prepublish": "elm make ./src/Main.elm --output=index.js --optimize"
   },
   "repository": {
     "type": "git",
