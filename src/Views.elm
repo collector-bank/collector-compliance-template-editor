@@ -29,8 +29,8 @@ panelNoHeader content =
         [ div [ class "card-body" ] content ]
 
 
-menuView : (MenuMsg -> msg) -> ViewComponent MenuState am msg
-menuView makeMenuMsg = eval <| \model modelTraits focus menuState ->
+menuView : ViewComponent MenuState Model Msg
+menuView = eval <| \model modelTraits focus menuState ->
     let   
         nullProduct = { id = "", name = "" }
         productsAndEmpty = nullProduct :: menuState.products
@@ -38,13 +38,15 @@ menuView makeMenuMsg = eval <| \model modelTraits focus menuState ->
         isProductSelected product = product.id == menuState.selectedProduct
         productTitle product = if product == nullProduct then "" else product.name ++ " (" ++ product.id ++ ")"
         updateSelectedProduct newSelectedProduct = modelTraits.makeMsg <| (focus |> composeFocus selectedProductOfMenuState).optional.set newSelectedProduct
-        productToOption : ProductDefinition -> Html msg
+        productToOption : ProductDefinition -> Html Msg
         productToOption product = option [ HA.value product.id, HA.selected (isProductSelected product), disabled (isProductSelected product) ] [ text (productTitle product) ]
-        productDropdown : Html msg
+        productDropdown : Html Msg
         productDropdown = select [ onInput updateSelectedProduct, class "form-control" ] (List.map productToOption productsAndEmpty)
-        loadQuestionTemplate = makeMenuMsg <| LoadQuestionTemplate menuState.selectedProduct
-        saveQuestionTemplate = makeMenuMsg <| SaveQuestionTemplate menuState.selectedProduct
-        makeFormGroup : Maybe String -> Html msg -> Html msg
+        loadQuestionTemplate : Msg
+        loadQuestionTemplate = MenuAction <| LoadQuestionTemplate menuState.selectedProduct
+        saveQuestionTemplate : Msg
+        saveQuestionTemplate = MenuAction <| SaveQuestionTemplate menuState.selectedProduct
+        makeFormGroup : Maybe String -> Html Msg -> Html Msg
         makeFormGroup maybeLabel child = 
             let 
                 children =
@@ -68,7 +70,7 @@ rootView : Model -> Html Msg
 rootView model = 
     let
         modelTraits = { makeMsg = UpdateModel, makeIdMsg = UpdateModel << withNewId }
-        menuView_ = menuView MenuAction model modelTraits menuStateOfModel
+        menuView_ = menuView model modelTraits menuStateOfModel
         questionTemplateView_ = questionTemplateView model modelTraits questionTemplateOfModel
         questionDetailsView_ = 
             case routeToSelectedEntity model.route of 
