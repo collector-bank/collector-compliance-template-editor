@@ -3,7 +3,6 @@ module Model exposing (..)
 import Browser exposing (Document,application)
 import Browser.Navigation as Nav
 import Monocle.Lens exposing (Lens)
-import Routing exposing (..)
 import Uuid exposing (Uuid, uuidGenerator)
 import Random exposing (Seed, step, initialSeed)
 import Question.Model exposing (..)
@@ -37,6 +36,15 @@ type SelectedEntity a = Question (Focus a Question)
                       | Option (Focus a QuestionOption)
                       | Category (Focus a QuestionCategory )
                       | None
+
+type RoutePart
+    = CategoryRoute String
+    | QuestionRoute String
+    | OptionsRoute String
+    | GroupQuestion String
+    | FollowUpQuestion String
+
+type alias Route = List RoutePart
 
 -- Id generation
 
