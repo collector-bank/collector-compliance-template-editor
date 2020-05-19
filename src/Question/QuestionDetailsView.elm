@@ -20,6 +20,7 @@ questionDetailsView = eval <| \model modelTraits focus (Question current) ->
                         "freetext" -> makeFreeTextQuestion
                         "select"   -> makeSelectQuestion
                         "country"  -> makeCountryQuestion
+                        "beneficialowners" -> makeBeneficialOwnersQuestion
                         _          -> makeQuestionGroup
             in
                 modelTraits.makeMsg <| (focus |> composeFocus questionTypeOfQuestion).optional.set qt
@@ -35,7 +36,8 @@ questionDetailsView = eval <| \model modelTraits focus (Question current) ->
                         ("Free Text", "freetext", isFreeText current.questionType),
                         ("Select",    "select"  , isSelectQuestion current.questionType),
                         ("Country",   "country",  isCountryQuestion current.questionType),
-                        ("Group",     "group",    isQuestionGroup current.questionType)
+                        ("Group",     "group",    isQuestionGroup current.questionType),
+                        ("Beneficial Owners", "beneficialowners", isBeneficialOwnersQuestion current.questionType)
                     ]
                     , formTextInput "titleInput" "Title" current.title Nothing updateQuestionTitle
                     , formTextInput "extendedTitleInput" "Extended Title" current.extendedTitle (Just "A formatted title that may use html tags") updateQuestionExtendedTitle
@@ -79,3 +81,5 @@ questionTypeSpecificFieldsView = eval <| \model modelTraits focus questionType -
                     , button [ class "btn btn-outline-primary btn-sm", onClick addSubQuestion ]
                         [ text "Add Sub Question" ]                                
                     ]
+            BeneficialOwnersQuestion ->
+                div [] []
