@@ -23,6 +23,7 @@ type QuestionType
     | SelectQuestion SelectQuestionFields
     | CountryQuestion  CountryQuestionFields
     | QuestionGroup QuestionGroupFields
+    | BeneficialOwnersQuestion
 
 type alias QuestionOption = 
     { id : String
@@ -65,22 +66,35 @@ makeSelectQuestion = SelectQuestion  { options = [], allowMultiple = False }
 makeCountryQuestion : QuestionType
 makeCountryQuestion = CountryQuestion  { allowMultiple = False, validationMessage = "" }
 
+makeBeneficialOwnersQuestion : QuestionType
+makeBeneficialOwnersQuestion = BeneficialOwnersQuestion
+
+isFreeText : QuestionType -> Bool
 isFreeText questionType =
     case questionType of 
         FreeTextQuestion _ -> True
         _ -> False
 
+isSelectQuestion : QuestionType -> Bool
 isSelectQuestion questionType = 
     case questionType of 
         SelectQuestion _ -> True
         _ -> False
 
+isCountryQuestion : QuestionType -> Bool
 isCountryQuestion questionType =
     case questionType of 
         CountryQuestion _ -> True
         _ -> False
 
+isQuestionGroup : QuestionType -> Bool
 isQuestionGroup questionType = 
     case questionType of 
         QuestionGroup _ -> True
+        _ -> False
+
+isBeneficialOwnersQuestion : QuestionType -> Bool
+isBeneficialOwnersQuestion questionType =
+    case questionType of 
+        BeneficialOwnersQuestion -> True
         _ -> False

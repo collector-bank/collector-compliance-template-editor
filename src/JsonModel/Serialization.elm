@@ -98,6 +98,9 @@ questionToJson (Question question) =
                     addProperty "questionType" int 3 |>
                     addProperty "questions" questionsToJson qg.questions |>
                     addOptionalProperty "maxRepeat" stringToOptionalInt qg.maxRepeat
+                BeneficialOwnersQuestion ->
+                    emptyPropertySet |>
+                    addProperty "questionType" int 4
     in        
         object <| 
             (

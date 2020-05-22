@@ -63,6 +63,7 @@ decodeQuestion =
                                     case maybeMaxRepeat of
                                         Just maxRepeat -> QuestionGroup { questions = questions, maxRepeat = String.fromInt maxRepeat }
                                         Nothing -> makeQuestionGroup
+                                4 -> Just <| BeneficialOwnersQuestion
                                 _ -> Nothing              
                     in
                         case questionType of
